@@ -128,14 +128,25 @@ func main() {
 		panic(fmt.Errorf("获取迁移任务列表失败: %w", err))
 	}
 	fmt.Printf("迁移任务列表: %v\n", r)
+	/////////////////// oss 示例 //////////////////
+	//srcOption := &tos.AddressOption{
+	//	Ak:         "xx",
+	//	Sk:         "xxxx",
+	//	Endpoint:   "http://oss-cn-shanghai.aliyuncs.com",
+	//	Bucket:     "prod-lpai-asset",
+	//	Region:     "cn-shanghai",
+	//	Vendor:     "StorageVendorOSS",
+	//	PrefixList: []string{"dataset/test-title/25-07-01-4-20250701164534/"},
+	//}
+	///////////////// bos 示例 //////////////////
 	srcOption := &tos.AddressOption{
 		Ak:         "xx",
-		Sk:         "xxxx",
-		Endpoint:   "http://oss-cn-shanghai.aliyuncs.com",
+		Sk:         "xxx",
+		Endpoint:   "http://s3.bj.bcebos.com",
 		Bucket:     "prod-lpai-asset",
-		Region:     "cn-shanghai",
-		Vendor:     "StorageVendorOSS",
-		PrefixList: []string{"dataset/test-title/25-07-01-4-20250701164534/"},
+		Region:     "bj",
+		Vendor:     "StorageVendorS3",
+		PrefixList: []string{"dataset/test-title/25-07-01-5-20250701170443/"},
 	}
 	destOption := &tos.AddressOption{
 		Ak:         "xx",
