@@ -5,29 +5,12 @@ import (
 	"fmt"
 	"github.com/volcengine/volcengine-go-sdk/service/dms"
 	"github.com/volcengine/volcengine-go-sdk/volcengine"
-	"github.com/volcengine/volcengine-go-sdk/volcengine/credentials"
-	"github.com/volcengine/volcengine-go-sdk/volcengine/session"
 	"regexp"
 	"strings"
 )
 
 type Client struct {
 	Client *dms.DMS
-}
-
-func NewTosClient() (*Client, error) {
-	// 这里假设你已经设置了环境变量 VOLCENGINE_ACCESS_KEY_ID 和 VOLCENGINE_ACCESS_KEY_SECRET
-	config := volcengine.NewConfig().
-		WithCredentials(credentials.NewEnvCredentials()).
-		WithRegion("cn-north-1") // 替换为你的实际区域
-
-	sess, err := session.NewSession(config)
-	if err != nil {
-		return nil, fmt.Errorf("创建 TOS 客户端失败: %w", err)
-	}
-
-	client := dms.New(sess)
-	return &Client{Client: client}, nil
 }
 
 type AddressOption struct {
